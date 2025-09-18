@@ -7,17 +7,25 @@ public class GameManager : MonoBehaviour
     private string chickName;
     private string cowName;
 
+    public List<Chicken> chickenPrefabs;
+    public List<Chicken> chickens = new List<Chicken>();
+    public Chicken currentChicken;
+
+    public List<Cow> cowPrefabs;
+    public List<Cow> cows = new List<Cow>();
+    public Cow currentCow;
+
     void Start()
     {
-        Chicken chicken = new Chicken("Clucky", 20, 20);
+        /*Chicken chicken = new Chicken("Clucky", 20, 20);
         chickName = chicken.Name;
 
         Cow cow = new Cow("Milky", 20, 20);
-        cowName = cow.Name;
+        cowName = cow.Name;*/
 
         GameStart();
 
-        chicken.GetStatus();
+        /*chicken.GetStatus();
         chicken.MakeSound();
         chicken.Feed("corn");
         chicken.GetStatus();
@@ -29,7 +37,7 @@ public class GameManager : MonoBehaviour
         cow.Feed("grass");
         cow.GetStatus();
         cow.Moo();
-        cow.GetStatus();
+        cow.GetStatus();*/
 
     }
 

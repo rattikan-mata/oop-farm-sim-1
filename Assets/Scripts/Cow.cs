@@ -1,73 +1,19 @@
 using UnityEngine;
 
-public class Cow
+public class Cow : Animals
 {
-    private string name;
-    private int hunger;
-    private int happiness;
-
-    public string Name
-    {
-        get { return name; }
-        set
-        {
-            if (string.IsNullOrEmpty(value)) { name = "Unknow Cow"; }
-            else name = value;
-        }
-    }
-
-    public int Hunger
-    {
-        get { return hunger; }
-        set
-        {
-            if (value < 0) hunger = 0;
-            else if (value > 50) hunger = 50;
-            else hunger = value;
-        }
-    }
-
-    public int Happiness
-    {
-        get { return happiness; }
-        set
-        {
-            if (value < 0) happiness = 0;
-            else if (value > 50) happiness = 50;
-            else happiness = value;
-        }
-    }
-
+    private int milk;
     public int Milk { get; private set; }
 
-    public Cow(string newName, int newHunger, int newHappiness)
+    public override void Init(string newName, int newHunger, int newHappiness)
     {
-        Name = newName;
-        Hunger = newHunger;
-        Happiness = newHappiness;
+        base.Init(newName, newHunger, newHappiness);
         Milk = 0;
-    }
-
-    public void AdjustHunger(int amount)
-    {
-        Hunger += amount;
-    }
-
-    public void AdjustHappiness(int amount)
-    {
-        Happiness += amount;
     }
 
     public void MakeSound()
     {
         Debug.Log($"{Name} moaning Mooorrr");
-    }
-
-    public void Feed(string food)
-    {
-        AdjustHunger(-15);
-        AdjustHappiness(10);
-        Debug.Log($"{Name} enjoyed the {food}.");
     }
 
     public void GetStatus()
