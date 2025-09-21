@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Animals : MonoBehaviour
+public abstract class Animal : MonoBehaviour
 {
     private string name;
     private int hunger;
@@ -38,7 +38,7 @@ public class Animals : MonoBehaviour
         }
     }
 
-    public virtual void Init(string newName, int newHunger, int newHappiness)
+    public void Init(string newName, int newHunger, int newHappiness)
     {
         Name = newName;
         Hunger = newHunger;
@@ -55,10 +55,27 @@ public class Animals : MonoBehaviour
         Happiness += amount;
     }
 
-    public void Feed(string food)
+    public virtual void MakeSound()
     {
-        AdjustHunger(-15);
-        AdjustHappiness(10);
-        Debug.Log($"{Name} enjoyed the {food}.");
+        Debug.Log("Animal makes sound.");
+    }
+
+    public void Feed(int amount)
+    {
+        AdjustHunger(-amount);
+        AdjustHappiness((amount/2));
+        Debug.Log($"{Name} was fed {amount} units of food.");
+    }
+
+    public void Feed(string food, int amount)
+    {
+        AdjustHunger(-amount);
+        AdjustHappiness((amount/2));
+        Debug.Log($"{Name} was fed {amount} of {food}.");
+    }
+
+    public void GetStatus()
+    {
+        Debug.Log($"{Name} -- Hunger: {Hunger} | Happiness: {Happiness}");
     }
 }

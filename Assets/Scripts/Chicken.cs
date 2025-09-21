@@ -1,24 +1,13 @@
 using UnityEngine;
 
-public class Chicken : Animals
+public class Chicken : Animal
 {
     private int eggs;
     public int Eggs { get; private set; }
 
-    public override void Init(string newName, int newHunger, int newHappiness)
+    public override void MakeSound()
     {
-        base.Init(newName, newHunger, newHappiness);
-        Eggs = 0;
-    }
-
-    public void MakeSound()
-    {
-        Debug.Log($"{Name} crows Pok! Pok!");
-    }
-
-    public void GetStatus()
-    {
-        Debug.Log($"{Name} -- Hunger: {Hunger} | Happiness: {Happiness} | Total Eggs: {Eggs}");
+        Debug.Log($"{Name} says Pok! Pok!");
     }
 
     public void Sleep()
