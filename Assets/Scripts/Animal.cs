@@ -1,10 +1,17 @@
 using UnityEngine;
 
+public enum FoodType
+{
+    Grain,
+    Hay,
+    Cereal,
+    RottenFood,
+    AnimalFood
+}
+
 public abstract class Animal : MonoBehaviour
 {
     private string name;
-    private int hunger;
-    private int happiness;
 
     public string Name
     {
@@ -16,33 +23,17 @@ public abstract class Animal : MonoBehaviour
         }
     }
 
-    public int Hunger
-    {
-        get { return hunger; }
-        private set
-        {
-            if (value < 0) hunger = 0;
-            else if (value > 50) hunger = 50;
-            else hunger = value;
-        }
-    }
+    public int Hunger { get; private set; }
 
-    public int Happiness
-    {
-        get { return happiness; }
-        private set
-        {
-            if (value < 0) happiness = 0;
-            else if (value > 50) happiness = 50;
-            else happiness = value;
-        }
-    }
+    public int Happiness { get; private set; }
 
-    public void Init(string newName, int newHunger, int newHappiness)
+    public FoodType PreferedFood { get; private set; }
+
+    public void Init(string newName)
     {
         Name = newName;
-        Hunger = newHunger;
-        Happiness = newHappiness;
+        Hunger = Mathf.Clamp(50, 0, 100);
+        Happiness = Mathf.Clamp(50, 0, 100);
     }
 
     public void AdjustHunger(int amount)
@@ -55,27 +46,28 @@ public abstract class Animal : MonoBehaviour
         Happiness += amount;
     }
 
-    public virtual void MakeSound()
+    public void GetStatus()
     {
-        Debug.Log("Animal makes sound.");
+        Debug.Log($"{Name} -- Hunger: {Hunger} | Happiness: {Happiness}");
     }
 
     public void Feed(int amount)
     {
         AdjustHunger(-amount);
         AdjustHappiness((amount/2));
-        Debug.Log($"{Name} was fed {amount} units of food.");
+        Debug.Log($"{Name} was fed {amount} units of food. | Current Happiness: {Happiness} | Current Hunger: {Hunger}");
     }
 
-    public void Feed(string food, int amount)
+    public void Feed(FoodType foodType, int amount)
     {
         AdjustHunger(-amount);
         AdjustHappiness((amount/2));
-        Debug.Log($"{Name} was fed {amount} of {food}.");
+        Debug.Log($"{Name} was fed {amount} of {foodType}.");
     }
 
-    public void GetStatus()
-    {
-        Debug.Log($"{Name} -- Hunger: {Hunger} | Happiness: {Happiness}");
-    }
+    public abstract void MakeSound();
+
+    public abstract string Produce();
+
+
 }
