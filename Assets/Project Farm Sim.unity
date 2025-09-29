@@ -148,9 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6772619798886124ea8e88ac4052fb43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Chicken: {fileID: 1013902601}
-  Cow: {fileID: 1813787543}
-  Duck: {fileID: 1967761642}
+  Chicken: {fileID: 1813787548}
+  Cow: {fileID: 1967761647}
+  Pig: {fileID: 1013902606}
   animals: []
 --- !u!4 &223690313
 Transform:
@@ -179,26 +179,14 @@ GameObject:
   - component: {fileID: 1013902604}
   - component: {fileID: 1013902603}
   - component: {fileID: 1013902602}
-  - component: {fileID: 1013902601}
+  - component: {fileID: 1013902606}
   m_Layer: 0
-  m_Name: Chicken
+  m_Name: Pig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1013902601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013902600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5eb74c173630934ca3c01af01844946, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &1013902602
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -243,7 +231,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8f1fea554438970469a955be7a33cd38, type: 2}
+  - {fileID: 2100000, guid: ebcb8466ff3c1eb49a7ba9dc35373f8d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -281,13 +269,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013902600}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.42261827, z: 0, w: 0.9063079}
+  m_LocalRotation: {x: 0, y: 0.76604444, z: 0, w: 0.64278764}
   m_LocalPosition: {x: -1, y: 1, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 50, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 100, z: 0}
+--- !u!114 &1013902606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013902600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d2250d82f4cc294dbe1ef1600907793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1567010152
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,26 +397,14 @@ GameObject:
   - component: {fileID: 1813787546}
   - component: {fileID: 1813787545}
   - component: {fileID: 1813787544}
-  - component: {fileID: 1813787543}
+  - component: {fileID: 1813787548}
   m_Layer: 0
-  m_Name: Cow
+  m_Name: Chicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1813787543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1813787542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbf8c03274f82bc47b3af9fbe78d5f23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1813787544
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -461,7 +449,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: daa8fef5a1c2c4c45b037a0a38511d4c, type: 2}
+  - {fileID: 2100000, guid: 70f86244228c54c4eabcdcd3446f9c02, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -506,6 +494,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!114 &1813787548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813787542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5eb74c173630934ca3c01af01844946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1967761641
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,26 +518,14 @@ GameObject:
   - component: {fileID: 1967761645}
   - component: {fileID: 1967761644}
   - component: {fileID: 1967761643}
-  - component: {fileID: 1967761642}
+  - component: {fileID: 1967761647}
   m_Layer: 0
-  m_Name: Duck
+  m_Name: Cow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1967761642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967761641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d2250d82f4cc294dbe1ef1600907793, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &1967761643
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -584,7 +572,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3145f2bdc2cdbb34f9c5c951d1feb9fe, type: 2}
+  - {fileID: 2100000, guid: 3ac221c473273f24e93d1aaa3b0871bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -622,13 +610,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1967761641}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.92387956, z: 0, w: 0.38268343}
+  m_LocalRotation: {x: 0, y: -0.9396926, z: 0, w: 0.34202018}
   m_LocalPosition: {x: 3, y: 1, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -135, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -140, z: 0}
+--- !u!114 &1967761647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967761641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf8c03274f82bc47b3af9fbe78d5f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1997628703
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +728,6 @@ SceneRoots:
   - {fileID: 1997628706}
   - {fileID: 1567010154}
   - {fileID: 223690313}
-  - {fileID: 1013902605}
   - {fileID: 1813787547}
   - {fileID: 1967761646}
+  - {fileID: 1013902605}

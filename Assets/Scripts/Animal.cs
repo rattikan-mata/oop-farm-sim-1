@@ -11,62 +11,60 @@ public enum FoodType
 
 public abstract class Animal : MonoBehaviour
 {
-    private string name;
-
-    public string Name
-    {
-        get { return name; }
-        private set
-        {
-            if (string.IsNullOrEmpty(value)) { name = "Unknow Name"; }
-            else name = value;
-        }
-    }
-
+    public string Name { get; private set; }
     public int Hunger { get; private set; }
-
     public int Happiness { get; private set; }
+    public FoodType PreferedFood { get; protected set; }
 
-    public FoodType PreferedFood { get; private set; }
-
-    public void Init(string newName)
+    public virtual void Init(string name)
     {
-        Name = newName;
-        Hunger = Mathf.Clamp(50, 0, 100);
-        Happiness = Mathf.Clamp(50, 0, 100);
+        Name = name;
+        Hunger = 50;
+        Happiness = 50;
     }
 
     public void AdjustHunger(int amount)
     {
-        Hunger += amount;
+        Hunger = Mathf.Clamp(Hunger + amount, 0, 100);
     }
 
     public void AdjustHappiness(int amount)
     {
-        Happiness += amount;
+        Happiness = Mathf.Clamp(Happiness + amount, 0, 100);
     }
 
     public void GetStatus()
     {
-        Debug.Log($"{Name} -- Hunger: {Hunger} | Happiness: {Happiness}");
+        Debug.Log($"{Name} --> Hunger: {Hunger} | Happiness: {Happiness} | Prefered Food: {PreferedFood}");
     }
 
     public void Feed(int amount)
     {
         AdjustHunger(-amount);
         AdjustHappiness((amount/2));
-        Debug.Log($"{Name} was fed {amount} units of food. | Current Happiness: {Happiness} | Current Hunger: {Hunger}");
+        Debug.Log($"{Name} was fed {amount} units of generic food. Current Happiness: {Happiness} | Current Hunger: {Hunger}");
     }
 
     public void Feed(FoodType foodType, int amount)
     {
-        AdjustHunger(-amount);
-        AdjustHappiness((amount/2));
-        Debug.Log($"{Name} was fed {amount} of {foodType}.");
+        if (foodType == PreferedFood)
+        {
+            AdjustHunger(-amount);
+            AdjustHappiness(15);
+            Debug.Log($"{Name} was fed {amount} units of prefered food: {PreferedFood}, Very Happy! Happiness increased 15 units | Current Happiness: {Happiness} | Current Hunger: {Hunger}");
+        }
+        else if (foodType == FoodType.RottenFood)
+        {
+            AdjustHappiness(-20);
+            Debug.Log($"{Name} was fed with rotten food: RottenMeat, Unhappy! Happiness decreased 20 units | Current Happiness: {Happiness} | Current Hunger: {Hunger}");
+        }
+        else
+        {
+            Feed(amount);
+        }
     }
 
     public abstract void MakeSound();
-
     public abstract string Produce();
 
 
